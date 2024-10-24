@@ -29,6 +29,7 @@ function App() {
     <div className='mainContainer'>
       <div className='topBar'>
         <span>Connectify</span>
+        <h1>chujchuj123123</h1>
       </div>
     </div>
   )
