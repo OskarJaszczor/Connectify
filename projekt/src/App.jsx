@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import ServerHandler from './components/ServerHandler';
 
-export function getFromNode()
+export function getFromNode({endpoint})
 {
   const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/x');
+                const response = await fetch('http://localhost:3000/' + endpoint);
                 const json = await response.json();
                 setData(json); 
             } catch (error) {
@@ -25,6 +25,20 @@ export function getFromNode()
 }
 
 
+export async function sendToNode({endpoint, data}){
+  
+    const response = await fetch("http://localhost:3000/" + endpoint, {
+    method: "POST",
+    body: JSON.stringify({endpoint: data}),
+    headers: {
+        "Content-Type": "application/json",
+    }     
+    });
+
+    getFromNode(endpoint)
+ 
+}
+
 
 function App() {
 
@@ -33,7 +47,7 @@ function App() {
       <div className='topBar'>
         <span>Connectify</span>
         
-        <ServerHandler name='x'></ServerHandler>
+        <ServerHandler name="super mario"></ServerHandler>
         
       </div>
     </div>
