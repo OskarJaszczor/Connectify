@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import ServerHandler from './components/ServerHandler';
 
-
-
-
-function App() {
+export function getFromNode()
+{
   const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -22,14 +21,20 @@ function App() {
         
     }, []);
     
-  if(data!=null)
-    console.log(data)
+  return data;
+}
+
+
+
+function App() {
 
   return (
     <div className='mainContainer'>
       <div className='topBar'>
         <span>Connectify</span>
-
+        
+        <ServerHandler name='x'></ServerHandler>
+        
       </div>
     </div>
   )
