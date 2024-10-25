@@ -14,63 +14,53 @@ class Server
   }
 }
 
-class Channel
-{
-  constructor(channelId, serverId, channelName, channelChar)
-  {
-    this.channelId = channelId
-    this.channelChar = channelChar
-    this.channelName = channelName
-    this.serverId = serverId
-  }
-}
 
 function App() {
-  //const [activeServer, setServer] = useState(server1.serverName);
-  //const [activeChannel, setChannel] = useState(channel1.channelName)
-  var server1 = new Server(1, "Giga Serwer", "/img/firstlogo.jfif", [1,2,3])
-  var server2 = new Server(2, "Swietny Serwer", "/img/secondlogo.jfif", [1,3])
-  var channel1 = new Channel(1, 1, "Super kanał", '#')
-  var channel2 = new Channel(2, 2, "Najlepszy kanał", '!')
 
+    var server1 = new Server(1, "Giga Serwer", "/img/firstlogo.jfif", [1,2,3])
+    var server2 = new Server(2, "Swietny Serwer", "/img/secondlogo.jfif", [1,3])
 
-  const [data, setData] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:3000/' + endpoint);
-                const json = await response.json();
-                setData(json); 
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        };
-        
-        fetchData();
-        
-    }, []);
-    
-  return data;
-}
-
-
-export async function sendToNode({endpoint, data}){
   
-    const response = await fetch("http://localhost:3000/" + endpoint, {
-    method: "POST",
-    body: JSON.stringify({endpoint: data}),
-    headers: {
-        "Content-Type": "application/json",
-    }     
-    });
+  
+    const [data, setData] = useState(null);
+  
+      useEffect(() => {
+          const fetchData = async () => {
+              try {
+                  const response = await fetch('http://localhost:3000/x');
+                  const json = await response.json();
+                  setData(json); 
+              } catch (error) {
+                  console.error('Error fetching data:', error);
+              }
+          };
+          fetchData();
+      }, [data]);
 
-    getFromNode(endpoint)
- 
-}
+
+// przypisawanie do obiektow
+// zrobic wysylanie danych do node'a
 
 
-function App() {
+/*
+
+<div>
+      <h1>List of Servers</h1>
+      {data && data.servers ? (
+        data.servers.map(server => (
+          <div key={server.serverId}>
+            <h2>{server.serverName}</h2>
+            <img src={server.serverImg} alt={server.serverName} />
+            <p>Users: {server.users}</p>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+*/
+
+
 
   return (
     <div className='mainContainer'>
@@ -78,8 +68,7 @@ function App() {
         <span>CONNECTIFY</span>
       </div>
       <div className='serversContainer'>
-          <ServerHandler server={server1}></ServerHandler>
-          <ServerHandler server={server2}></ServerHandler>
+        <ServerHandler servers={data.servers}></ServerHandler>
         </div>
         <div className='channelsContainer'>
         <div className="channelHandler">
@@ -170,4 +159,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
