@@ -1,5 +1,105 @@
-.serverHandler{
-  width: 10px;
-  height: 10px;
-  background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand:wght@300..700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'quicksand';
+    font-weight: 600;
+}
+
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.serverHandler {
+    width: 5vw;
+    height: 5vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    margin-left: 1vw;
+    margin-top: 2vh;
+}
+
+.serverName {
+    line-height: 5vw;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
+.serversContainer {
+    height: 90vh;
+    background-color: black;
+    width: 7vw;
+    border: 1px solid orange;
+}
+
+.active {
+    animation: border 0.5s forwards;
+}
+
+@keyframes border {
+    from {
+        border: 1px solid black;
+    }
+    to {
+        border: white 1px solid;
+    }
+}
+
+.topBar {
+    width: 100vw;
+    background-color: black;
+    color: white;
+    border: 1px solid yellow;
+    height: 3vh;
+}
+
+.topBar>span {
+    font-family: "Audiowide", sans-serif;
+}
+
+
+/**/
+
+.channelsContainer {
+    width: 20vw;
+    height: 90vh;
+    background-color: black;
+    border: 1px solid blue;
+}
+
+
+/**/
+
+.newMessageContainer {
+    width: 50vw;
+    height: 3vw;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid red;
+}
+
+.newMessageInput {
+    width: 40vw;
+    height: 3vw;
+    background-color: black;
+    color: white;
+    border: none;
+    line-height: 3vw;
+    text-align: right;
+}
+
+.newMessageSend {
+    width: 3vw;
+    height: 3vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
 }

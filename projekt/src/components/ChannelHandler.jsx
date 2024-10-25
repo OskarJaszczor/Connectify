@@ -1,14 +1,11 @@
-export default function ChannelHandler(props)
+export default function ChannelHandler()
 {
 
     return(
-        <div className="channelHandler" style={{backgroundImage: {a}}} onClick={ async () => {
-            const response = await fetch("http://localhost:3000/server", {
-            method: "POST",
-            body: JSON.stringify({server: props.name})
-});
+        <div className="channelHandler"onClick={(e) => {
+            <p>{x.name}</p>
         }}>
-
+            
         </div>
     )
 }
