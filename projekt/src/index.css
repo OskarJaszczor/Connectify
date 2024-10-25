@@ -7,11 +7,14 @@
     font-weight: 600;
 }
 
+body {
+    background-color: black;
+}
+
 .mainContainer {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .serverHandler {
@@ -21,22 +24,30 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    margin-left: 1vw;
+    margin-left: 1.5vw;
+    margin-top: 2vh;
 }
 
 .serverName {
-    line-height: 8vh;
+    line-height: 4vh;
     color: white;
     font-size: 12px;
     text-align: center;
+    width: 5vw;
+    position: absolute;
+    background-color: rgb(8, 2, 10);
+    border: rgb(225, 56, 255) 1px solid;
+    border-radius: 1vw;
+    left: 5vw;
+    z-index: 2;
 }
 
 .serversContainer {
-    height: 90vh;
+    height: 95vh;
     background-color: black;
     width: 7vw;
-    border: 1px solid orange;
-    margin-top: -7vh;
+    border: 1px solid rgb(225, 56, 255);
+    top: 3vh;
 }
 
 .active {
@@ -56,8 +67,8 @@
     width: 100vw;
     background-color: black;
     color: white;
-    border: 1px solid yellow;
     height: 3vh;
+    border-bottom: 1px solid rgb(225, 56, 255);
 }
 
 .topBar>span {
@@ -69,31 +80,79 @@
 
 .channelsContainer {
     width: 20vw;
-    height: 90vh;
+    height: 95vh;
     background-color: black;
-    border: 1px solid blue;
-    margin-top: -7vh;
+    position: absolute;
+    top: 3vh;
+    left: 7vw;
+    border-right: 1px solid rgb(225, 56, 255);
+    border-bottom: 1px solid rgb(225, 56, 255);
+}
+
+.channelHandler {
+    width: 19vw;
+    height: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    background-color: rgb(34, 9, 42);
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+    border-radius: 0.5vh;
+}
+
+.channelHandler>span {
+    font-size: 4vh;
+    opacity: 0.6;
+    margin-left: 2vw;
+}
+
+.channelHandler>p {
+    line-height: 5vh;
+    margin-left: 1vw;
 }
 
 
 /* CHAT */
 
+.chat {
+    width: 73vw;
+    height: 90vh;
+    background-image: url(/img/bck2.avif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 27vw;
+    top: 3vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
 .newMessageContainer {
-    width: 50vw;
+    width: 73vw;
     height: 3vw;
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid red;
+    position: absolute;
+    left: 27vw;
+    bottom: 2vh;
+    border-top: 1px solid rgb(225, 56, 255);
+    background-color: rgb(8, 2, 10);
 }
 
 .newMessageInput {
-    width: 40vw;
+    width: 69.5vw;
     height: 3vw;
-    background-color: black;
+    background-color: rgb(8, 2, 10);
     color: white;
     border: none;
     line-height: 3vw;
-    text-align: right;
+    text-align: center;
+}
+
+.newMessageInput:focus {
+    outline: none;
 }
 
 .newMessageSend {
@@ -103,4 +162,47 @@
     background-position: center;
     background-repeat: no-repeat;
     border: none;
+    background-color: rgb(8, 2, 10);
+}
+
+.messageContainer {
+    width: 65vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+}
+
+.messageAuthorAvatar {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    background-color: red;
+    margin-left: 2vw;
+}
+
+.messageBox {
+    width: 60vw;
+    height: auto;
+    margin-top: -5vh;
+    margin-left: 5vw;
+    background-color: rgba(34, 9, 42, 0.95);
+    border-radius: 1vh;
+}
+
+.messageAuthor {
+    color: rgb(225, 56, 255);
+    font-size: 2vh;
+    margin-left: 1vw;
+}
+
+.messageDate {
+    color: rgb(71, 20, 87);
+    font-size: 2vh;
+}
+
+.messageContent {
+    color: white;
+    font-size: 2vh;
+    margin-left: 1vw;
 }
