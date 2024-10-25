@@ -82,12 +82,85 @@ function App() {
           <ServerHandler server={server2}></ServerHandler>
         </div>
         <div className='channelsContainer'>
-            
+        <div className="channelHandler">
+            <span className="channelChar">#</span><p className="channelName">Super kanal</p>
+        </div>
             
         </div>
         <div className='chatContainer'>
           <div className='chat'>
-
+          <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
+        <div className="messageContainer">
+            <div className="messageAuthorAvatar"></div>
+            <div className="messageBox">
+                <span className="messageAuthor">username</span> <span className="messageDate">25.10.2024 14:50</span>
+                <p className="messageContent">
+                    To jest swietna wiadomosc To jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomosc To jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomoscTo jest swietna wiadomosc
+                </p>
+            </div>
+        </div>
           </div>
           <div className='newMessageContainer'>
             <NewMessage></NewMessage>
