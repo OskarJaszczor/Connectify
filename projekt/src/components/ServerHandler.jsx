@@ -1,21 +1,25 @@
-export default function ServerHandler(props)
-{
-    var div = "";
-    return(
-        <div className="serverHandler" style={{backgroundImage: 'url(' + props.server.serverImg + ')'}} onMouseEnter={(e) => {
-            div = document.createElement("div");
-            div.classList.add("serverName");
-            div.innerText = props.server.serverName;
-            e.target.appendChild(div);
-            e.target.classList.add("active")
-            
-        }} onClick={(e) => {
-            
-        }} onMouseLeave={(e) => {
-            e.target.removeChild(div);
-            e.target.classList.remove("active")
-        }}>
-            
-        </div>
-    )
+export default function ServerHandler({ data, SetActiveServer, activeServer }) {
+  return (
+    <div className="serversContainer">
+      {data && data.servers ? (
+        data.servers.map((server) => (
+          <div
+            key={server.serverId}
+            onClick={() => {
+              SetActiveServer(server.serverId);
+            }}
+            style={{
+              backgroundColor:
+                server.serverId === activeServer ? "lightblue" : "white",
+            }} // Jak server jest aktywny tobedzie kolorowy
+          >
+            <h2>{server.serverName}</h2>
+            <img src={server.serverImg} alt={server.serverName} />
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
 }
