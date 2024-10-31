@@ -8,7 +8,10 @@
 }
 
 body {
-    background-color: black;
+    background-image: url(/img/background.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .mainContainer {
@@ -24,8 +27,27 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 50%;
-    margin-left: 1.5vw;
+    margin-left: 1.2vw;
     margin-top: 2vh;
+}
+
+.addServerHandler {
+    width: 8vh;
+    height: 8vh;
+    border: 2px solid lightblue;
+    border-radius: 50%;
+    margin-left: 1.2vw;
+    margin-top: 2vh;
+    line-height: 7vh;
+    text-align: center;
+    color: lightblue;
+    font-size: 5vh;
+    font-weight: 100;
+    font-family: 'Gill Sans';
+}
+
+.hidden {
+    display: none;
 }
 
 .serverName {
@@ -35,19 +57,21 @@ body {
     text-align: center;
     width: 5vw;
     position: absolute;
-    background-color: rgb(8, 2, 10);
-    border: rgb(225, 56, 255) 1px solid;
+    background-color: rgba(4, 55, 72, 0.5);
     border-radius: 1vw;
     left: 5vw;
     z-index: 2;
+    display: none;
 }
 
 .serversContainer {
+    position: absolute;
     height: 95vh;
-    background-color: black;
-    width: 7vw;
-    border: 1px solid rgb(225, 56, 255);
+    background-color: rgba(4, 55, 72, 0.5);
+    width: 6vw;
     top: 3vh;
+    left: 1vw;
+    border-radius: 1vw;
 }
 
 .active {
@@ -65,10 +89,9 @@ body {
 
 .topBar {
     width: 100vw;
-    background-color: black;
     color: white;
     height: 3vh;
-    border-bottom: 1px solid rgb(225, 56, 255);
+    padding-left: 1vw;
 }
 
 .topBar>span {
@@ -81,12 +104,11 @@ body {
 .channelsContainer {
     width: 20vw;
     height: 95vh;
-    background-color: black;
+    background-color: rgba(4, 55, 72, 0.5);
     position: absolute;
     top: 3vh;
-    left: 7vw;
-    border-right: 1px solid rgb(225, 56, 255);
-    border-bottom: 1px solid rgb(225, 56, 255);
+    left: 8vw;
+    border-radius: 1vw;
 }
 
 .channelHandler {
@@ -101,54 +123,69 @@ body {
     border-radius: 0.5vh;
 }
 
-.channelHandler>span {
+.channelChar {
     font-size: 4vh;
     opacity: 0.6;
     margin-left: 2vw;
+    margin-right: 1vw;
 }
 
-.channelHandler>p {
+.channelName {
     line-height: 5vh;
     margin-left: 1vw;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 300;
 }
 
 
 /* CHAT */
 
 .chat {
-    width: 73vw;
-    height: 90vh;
-    background-image: url(/img/bck2.avif);
+    width: 70vw;
+    height: 88vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    left: 27vw;
+    left: 29vw;
     top: 3vh;
     overflow-y: scroll;
-    scroll-behavior: smooth;
+    background-color: rgba(4, 55, 72, 0.5);
+    border-radius: 1vw;
+}
+
+.chat::-webkit-scrollbar-track {
+    background: rgba(4, 55, 72, 0.5);
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background: #23b5fe;
+}
+
+.chat ::-webkit-scrollbar {
+    background: #05518b;
 }
 
 .newMessageContainer {
-    width: 73vw;
+    width: 70vw;
     height: 3vw;
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    left: 27vw;
+    left: 29vw;
     bottom: 2vh;
-    border-top: 1px solid rgb(225, 56, 255);
-    background-color: rgb(8, 2, 10);
 }
 
 .newMessageInput {
-    width: 69.5vw;
+    width: 67vw;
     height: 3vw;
-    background-color: rgb(8, 2, 10);
+    background-color: rgba(4, 55, 72, 0.95);
     color: white;
     border: none;
     line-height: 3vw;
     text-align: center;
+    border-top-left-radius: 1vw;
+    border-bottom-left-radius: 1vw;
 }
 
 .newMessageInput:focus {
@@ -162,7 +199,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    background-color: rgb(8, 2, 10);
+    background-color: rgba(4, 55, 72, 0.95);
 }
 
 .messageContainer {
@@ -177,7 +214,7 @@ body {
     width: 5vh;
     height: 5vh;
     border-radius: 50%;
-    background-color: red;
+    background-color: lightblue;
     margin-left: 2vw;
 }
 
@@ -186,18 +223,17 @@ body {
     height: auto;
     margin-top: -5vh;
     margin-left: 5vw;
-    background-color: rgba(34, 9, 42, 0.95);
     border-radius: 1vh;
 }
 
 .messageAuthor {
-    color: rgb(225, 56, 255);
+    color: rgb(56, 169, 255);
     font-size: 2vh;
     margin-left: 1vw;
 }
 
 .messageDate {
-    color: rgb(71, 20, 87);
+    color: rgb(10, 73, 140);
     font-size: 2vh;
 }
 

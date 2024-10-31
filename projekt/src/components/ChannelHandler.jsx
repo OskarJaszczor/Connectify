@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function ChannelHandler({
   data,
   activeServer,
@@ -11,17 +12,19 @@ export default function ChannelHandler({
           .filter((channel) => channel.serverId === activeServer)
           .map((channel) => (
             <div
+              className="channelHandler"
               key={channel.channelId}
               onClick={() => {
                 setActiveChannel(channel.channelId);
               }}
               style={{
                 backgroundColor:
-                  channel.channelId === activeChannel ? "lightblue" : "white",
+                  channel.channelId === activeChannel ? "rgba(173,216,230,0.6)" : "rgba(255,255,255,0)",
               }}
             >
-              <h2>{channel.channelName}</h2>
-              <span>{channel.channelChar}</span>
+              
+              <h2 className="channelName"><span className="channelChar">{channel.channelChar}</span>{channel.channelName}</h2>
+              
             </div>
           ))
       ) : (

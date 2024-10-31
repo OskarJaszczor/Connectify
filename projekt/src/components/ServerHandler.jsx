@@ -1,25 +1,30 @@
+/* eslint-disable react/prop-types */
+import AddServer from "./AddServer";
+
 export default function ServerHandler({ data, SetActiveServer, activeServer }) {
   return (
     <div className="serversContainer">
       {data && data.servers ? (
         data.servers.map((server) => (
-          <div
+          <div className="serverHandler"
             key={server.serverId}
             onClick={() => {
               SetActiveServer(server.serverId);
             }}
             style={{
-              backgroundColor:
-                server.serverId === activeServer ? "lightblue" : "white",
-            }} // Jak server jest aktywny tobedzie kolorowy
+              border:
+              server.serverId === activeServer ? "lightblue 3px solid" : "white 1px solid",
+              backgroundImage: `url(${server.serverImg})`,
+              
+            }}
           >
-            <h2>{server.serverName}</h2>
-            <img src={server.serverImg} alt={server.serverName} />
+            <h2 className="serverName" >x</h2>
           </div>
         ))
       ) : (
         <p>Loading...</p>
       )}
+    <AddServer></AddServer>
     </div>
   );
 }
