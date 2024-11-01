@@ -30,6 +30,25 @@ function App() {
     }, delay);
   }, [data]);
 
+
+
+  /*  PRZEWIJANIE CHATU NA DOL (DO PRZEROBIENIA)
+  const scrollingElement = document.getElementById("scroller");
+
+  const config = { childList: true };
+
+  const callback = function (mutationsList, observer) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    }
+  };
+
+  const observer = new MutationObserver(callback);
+  observer.observe(scrollingElement, config);
+  */
+      
   return (
     <div className="mainContainer">
       <div className="topBar">
@@ -61,3 +80,5 @@ function App() {
 }
 
 export default App;
+
+

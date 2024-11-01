@@ -16,6 +16,7 @@ export default function ChannelHandler({
               key={channel.channelId}
               onClick={() => {
                 setActiveChannel(channel.channelId);
+                
               }}
               style={{
                 backgroundColor:
