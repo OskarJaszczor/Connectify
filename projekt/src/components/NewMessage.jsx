@@ -12,6 +12,10 @@ export default function NewMessage({ activeChannel }) {
     console.log("Wiadomość do wysłania:", message);
     try {
       console.log("Wiadomość do wysłania juz dalej:", message);
+      console.log(document.querySelector(".chat"));
+      document
+        .querySelector(".chat")
+        .scrollTo(0, document.querySelector(".chat").clientHeight + 400);
 
       const response = await fetch("http://localhost:3000/messages", {
         method: "POST",
