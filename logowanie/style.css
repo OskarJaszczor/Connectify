@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Quicksand", serif;
+}
+
+.container {
+  width: 100vw;
+  background: rgb(9, 9, 121);
+  background: linear-gradient(
+    150deg,
+    rgba(9, 9, 121, 1) 6%,
+    rgba(181, 92, 244, 1) 51%,
+    rgba(92, 215, 244, 1) 97%
+  );
+  height: 100vh;
+}
+
+.buttonContainer {
+  width: 30vw;
+  height: 25vh;
+  margin-top: 25vh;
+  margin-left: 35vw;
+  border-radius: 1vw;
+  background-color: white;
+}
+
+.logInButton {
+  border: 1px solid blue;
+  color: blue;
+  background-color: white;
+  padding: 1vw;
+  border-radius: 0.5vw;
+  margin-top: 10vh;
+  margin-left: 7vw;
+  transition-duration: 0.5s;
+}
+
+.signUpButton {
+  background: rgb(9, 9, 121);
+  background: linear-gradient(
+    122deg,
+    rgba(9, 9, 121, 1) 2%,
+    rgba(142, 92, 244, 1) 48%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  border: none;
+  padding: 1vw;
+  border-radius: 0.5vw;
+}
+
+.logInButton:hover,
+.sendButton:hover,
+.sendButton1:hover {
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+}
+
+.signUpButton:hover {
+  cursor: pointer;
+  animation: changeBck 0.5s forwards;
+}
+
+@keyframes changeBck {
+  33% {
+    background: rgb(9, 9, 121);
+    background: linear-gradient(
+      122deg,
+      rgba(9, 9, 121, 1) 2%,
+      rgba(142, 92, 244, 1) 48%,
+      rgba(0, 212, 255, 1) 100%
+    );
+    color: white;
+  }
+  66% {
+    background: rgb(9, 9, 121);
+    background: linear-gradient(
+      122deg,
+      rgba(9, 9, 121, 1) 36%,
+      rgba(142, 92, 244, 1) 70%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  }
+  100% {
+    background: rgb(9, 9, 121);
+    background: linear-gradient(
+      122deg,
+      rgba(9, 9, 121, 1) 60%,
+      rgba(142, 92, 244, 1) 86%
+    );
+  }
+}
+
+.loginContainer,
+.registerContainer {
+  width: 20vw;
+  margin-left: 5vw;
+}
+
+.loginContainer {
+  margin-top: 2vh;
+}
+
+.inpPassword,
+.inpLogin {
+  width: 20vw;
+  background-color: white;
+  border: none;
+  border-bottom: 2px solid blue;
+}
+
+.inpLogin {
+  margin-bottom: 2vh;
+}
+
+.inpLogin:focus,
+.inpPassword:focus {
+  outline: none;
+  border-bottom: 2px solid lightblue;
+}
+
+.sendButton,
+.sendButton1 {
+  width: 5vw;
+  background-color: white;
+  border: 1px solid blue;
+  border-radius: 0.5vw;
+  margin-left: 7.5vw;
+  color: blue;
+  height: 3vh;
+  transition-duration: 0.5s;
+  margin-top: 2vh;
+}
