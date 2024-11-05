@@ -10,4 +10,4 @@ app.use(cors());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(3001, () => console.log("Sluchamy na porcie 30001!"));
+app.listen(3001, () => console.log("Sluchamy na porcie 3001!"));

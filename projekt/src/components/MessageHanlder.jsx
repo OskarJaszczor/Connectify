@@ -3,7 +3,11 @@
 export default function MessageHandler({ data, activeChannel }) {
   return (
     <div className="chatContainer">
+       {data && data.channels ? (data.channels.filter((channel) => channel.channelId === activeChannel).map((channel) => (<h2 key={channel.channelId} className="channelNameOnChat">{channel.channelName}</h2>))): (
+        <p>Loading...</p>
+      )}
       <div className="chat">
+
       {data && data.messages ? (
         data.messages
           .filter((messages) => messages.channelId === activeChannel) // Filtruj kanały według aktywnego serwera
@@ -14,7 +18,7 @@ export default function MessageHandler({ data, activeChannel }) {
             >
               
                 <div className="messageContainer">
-                  <div className="messageAuthorAvatar"></div>
+                  <div className="messageAuthorAvatar" style={{backgroundImage: `url(/img/twitch.jpg)`}}></div>
                   <div className="messageBox">
                     <span className="messageAuthor">{messages.author}</span>{" "}
                     <span className="messageDate">

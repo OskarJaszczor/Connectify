@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(/img/background.jpeg);
+    background-image: url(/img/bg.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,7 +57,6 @@ body {
     text-align: center;
     width: 5vw;
     position: absolute;
-    background-color: rgba(4, 55, 72, 0.5);
     border-radius: 1vw;
     left: 5vw;
     z-index: 2;
@@ -67,7 +66,6 @@ body {
 .serversContainer {
     position: absolute;
     height: 95vh;
-    background-color: rgba(4, 55, 72, 0.5);
     width: 6vw;
     top: 3vh;
     left: 1vw;
@@ -104,7 +102,6 @@ body {
 .channelsContainer {
     width: 20vw;
     height: 95vh;
-    background-color: rgba(4, 55, 72, 0.5);
     position: absolute;
     top: 3vh;
     left: 8vw;
@@ -117,7 +114,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     color: white;
-    background-color: rgb(34, 9, 42);
     margin-top: 1vh;
     margin-left: 0.5vw;
     border-radius: 0.5vh;
@@ -150,7 +146,6 @@ body {
     left: 29vw;
     top: 3vh;
     overflow-y: scroll;
-    background-color: rgba(4, 55, 72, 0.5);
     border-radius: 1vw;
 }
 
@@ -164,12 +159,12 @@ body {
 }
 
 .chat::-webkit-scrollbar-thumb {
-    background-color: rgb(32, 98, 168);
+    background-color: rgb(48, 21, 60);
     border-radius: 15px;
 }
 
 .chat::-webkit-scrollbar-thumb:hover {
-    background: rgb(10, 73, 140);
+    background: rgb(80, 6, 172);
 }
 
 .newMessageContainer {
@@ -185,17 +180,159 @@ body {
 .newMessageInput {
     width: 67vw;
     height: 3vw;
-    background-color: rgba(4, 55, 72, 0.95);
+    background-color: inherit;
     color: white;
     border: none;
+    border: 3px solid blue;
     line-height: 3vw;
     text-align: center;
     border-top-left-radius: 1vw;
     border-bottom-left-radius: 1vw;
+    transition-duration: 0.5s;
 }
 
 .newMessageInput:focus {
     outline: none;
+    border: 3px solid magenta;
+}
+
+.serverNameOnChannels {
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+.channels {
+    color: white;
+    font-size: 2vh;
+    margin-top: 3vh;
+}
+
+.addServerInvisible>ul {
+    list-style-type: none;
+}
+
+.addChannel {
+    color: white;
+    text-align: center;
+    border-top: 1px solid white;
+    margin-top: 2vh;
+}
+
+.addChannel:hover {
+    cursor: pointer;
+}
+
+.addChannelInvisible {
+    display: none;
+    color: white;
+}
+
+.addChannelInvisible>h3 {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.addChannelInvisible>input {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 3px solid blue;
+    width: 15vw;
+    margin-left: 2.5vw;
+    color: white;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.addChannelInvisible>input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid magenta;
+}
+
+.makeChannel {
+    width: 10vw;
+    height: 5vh;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid blue;
+    color: blue;
+    margin-left: 5vw;
+    margin-top: 2vh;
+    border-radius: 0.5vw;
+    transition-duration: 0.5s;
+}
+
+.makeChannel:hover {
+    color: magenta;
+    border: 1px solid magenta;
+}
+
+.imgOption {
+    width: 5vw;
+    height: 5vw;
+}
+
+.a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    display: none;
+}
+
+.addServerInvisible {
+    position: absolute;
+    width: 30vw;
+    height: 40vh;
+    left: 35vw;
+    top: 30vh;
+    background-image: linear-gradient(146deg, rgba(4, 7, 152, 1) 5%, rgba(185, 104, 219, 1) 93%);
+    z-index: 11;
+}
+
+.addServerInvisible>h3 {
+    text-align: center;
+    color: white;
+    margin-top: 2vh;
+}
+
+.addServerInvisible>input {
+    width: 20vw;
+    margin-left: 5vw;
+    border: none;
+    border-bottom: 3px solid blue;
+    background-color: inherit;
+    text-align: center;
+    color: white;
+}
+
+.addServerInvisible>input:focus {
+    outline: none;
+    border-bottom: 3px solid magenta;
+}
+
+.addServerInvisible>img {
+    margin-left: 3.7vw;
+}
+
+.addServerInvisible>button {
+    width: 10vw;
+    height: 5vh;
+    color: blue;
+    border: blue 1px solid;
+    margin-left: 10vw;
+    background-color: inherit;
+    border-radius: 0.5vw;
+    transition-duration: 0.5s;
+}
+
+.addServerInvisible>button:hover {
+    color: magenta;
+    border: 1px solid magenta;
+    cursor: pointer;
 }
 
 .newMessageSend {
@@ -205,7 +342,17 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    background-color: rgba(4, 55, 72, 0.95);
+    background-color: inherit;
+}
+
+.channelNameOnChat {
+    color: white;
+    border-bottom: 1px solid white;
+    width: 60vw;
+    position: absolute;
+    left: 35vw;
+    text-align: center;
+    top: 0;
 }
 
 .messageContainer {

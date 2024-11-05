@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import ServerHandler from "./components/ServerHandler";
 import ChannelHandler from "./components/ChannelHandler";
-//import NewMessage from "./components/NewMessage";
 import MessageHandler from "./components/MessageHanlder";
 import NewMessage from "./components/NewMessage";
+import AddServerInvisible from "./components/AddServerInvisible";
+
 
 function App() {
   const [activeServer, SetActiveServer] = useState(0);
@@ -53,7 +54,7 @@ function App() {
       <div className="topBar">
         <span>CONNECTIFY</span>
       </div>
-
+      <AddServerInvisible data={data}></AddServerInvisible>
       <ServerHandler
         data={data}
         SetActiveServer={SetActiveServer}

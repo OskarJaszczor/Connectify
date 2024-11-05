@@ -13,7 +13,7 @@ export default function ServerHandler({ data, SetActiveServer, activeServer }) {
             }}
             style={{
               border:
-              server.serverId === activeServer ? "lightblue 3px solid" : "white 1px solid",
+              server.serverId === activeServer ? "purple 3px solid" : "black 1px solid",
               backgroundImage: `url(${server.serverImg})`,
               
             }}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 export default function NewMessage({ activeChannel }) {
   const [message, newMessage] = useState("");
 
@@ -30,6 +31,7 @@ export default function NewMessage({ activeChannel }) {
         },
         body: JSON.stringify({
           content: message,
+          // AUTOR
           author: "User1",
           channel: activeChannel,
           date: new Date().toLocaleDateString(),
@@ -66,7 +68,7 @@ export default function NewMessage({ activeChannel }) {
         type="submit"
         style={{ backgroundImage: `url(./img/send.png)`, color: `red` }}
         className="newMessageSend"
-        value="submit"
+        value=""
       />
       {/* </form> */}
     </div>
