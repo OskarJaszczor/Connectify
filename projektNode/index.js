@@ -76,7 +76,7 @@ app.get("/x", async (req, res) => {
   const data = await getDatabase();
   console.log("await end");
 
-  console.log(data);
+  //console.log(data);
 
   res.json(data);
 });
@@ -109,8 +109,8 @@ app.post("/messages", async (req, res) => {
   res.sendStatus(200);
 });
 
-setInterval(() => {
-  console.log("awawwaw");
-}, 1000);
+// setInterval(() => {
+//   console.log("awawwaw");
+// }, 1000);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

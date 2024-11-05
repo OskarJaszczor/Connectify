@@ -7,6 +7,12 @@ export default function NewMessage({ activeChannel }) {
     newMessage(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSendMessage();
+    }
+  };
   const handleSendMessage = async () => {
     if (message.trim() === "") return;
     console.log("Wiadomość do wysłania:", message);
@@ -45,21 +51,24 @@ export default function NewMessage({ activeChannel }) {
 
   return (
     <div className="newMessageContainer">
+      {/* <form onKeyDown={handleKeyDown}> */}
       <input
+        onKeyDown={handleKeyDown}
         type="text"
         value={message}
         onChange={handleInputChange}
         placeholder="Type here..."
         className="newMessageInput"
       />
-      <button
+      <input
+        onKeyDown={handleKeyDown}
         onClick={handleSendMessage}
         type="submit"
         style={{ backgroundImage: `url(./img/send.png)`, color: `red` }}
         className="newMessageSend"
-      >
-        submit
-      </button>
+        value="submit"
+      />
+      {/* </form> */}
     </div>
   );
 }

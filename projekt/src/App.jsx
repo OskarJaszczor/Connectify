@@ -12,7 +12,7 @@ function App() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const delay = data == null ? 0 : 2000;
+    const delay = data == null ? 0 : 250;
 
     setTimeout(() => {
       const fetchData = async () => {
