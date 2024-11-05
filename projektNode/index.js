@@ -72,8 +72,12 @@ app.post("/server", (req, res) => {
 });
 
 app.get("/x", async (req, res) => {
+  console.log("await start");
   const data = await getDatabase();
+  console.log("await end");
+
   console.log(data);
+
   res.json(data);
 });
 
@@ -101,6 +105,12 @@ app.post("/messages", async (req, res) => {
     }
     console.log("Wiadomość dodana:", { content, author, channel, date, hour });
   });
+
+  res.sendStatus(200);
 });
+
+setInterval(() => {
+  console.log("awawwaw");
+}, 1000);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
