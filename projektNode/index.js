@@ -82,7 +82,7 @@ app.post("/server", (req, res) => {
 app.get("/x", async(req, res) => {
     const data = await getDatabase();
 
-    //console.log(data);
+    console.log(data);
 
     res.json(data);
 });
