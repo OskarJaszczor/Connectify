@@ -5,13 +5,29 @@ import ChannelHandler from "./components/ChannelHandler";
 import MessageHandler from "./components/MessageHanlder";
 import NewMessage from "./components/NewMessage";
 import AddServerInvisible from "./components/AddServerInvisible";
-
+import imageToBase64 from "image-to-base64/browser";
 
 function App() {
   const [activeServer, SetActiveServer] = useState(0);
   const [activeChannel, SetActiveChannel] = useState(0);
+  const [activeUser, SetActiveUser] = useState(0);
   const [data, setData] = useState(null);
 
+  //const imageToBase64 = require("image-to-base64");
+
+  // POBIERANIE ZDJEC NA SERWER
+  /*imageToBase64("img/a.png")
+    .then((response) => {
+      const filePath = path.join('./uploads', fileName);
+
+      const buffer = Buffer.from(base64Data, 'base64');
+  
+      fs.writeFileSync(filePath, buffer);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+*/
   useEffect(() => {
     const delay = data == null ? 0 : 250;
 
@@ -71,6 +87,7 @@ function App() {
       <MessageHandler
         data={data}
         activeChannel={activeChannel}
+        activeUser={activeUser}
       ></MessageHandler>
 
       <NewMessage activeChannel={activeChannel}></NewMessage>

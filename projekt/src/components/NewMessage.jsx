@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export default function NewMessage({ activeChannel }) {
+export default function NewMessage({ activeChannel, activeUser }) {
   const [message, newMessage] = useState("");
 
   const handleInputChange = (event) => {
@@ -32,7 +32,7 @@ export default function NewMessage({ activeChannel }) {
         body: JSON.stringify({
           content: message,
           // AUTOR
-          author: "User1",
+          author: activeUser,
           channel: activeChannel,
           date: new Date().toLocaleDateString(),
           hour: new Date().toLocaleTimeString(),
