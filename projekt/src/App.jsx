@@ -12,6 +12,21 @@ function App() {
   const [data, setData] = useState(null);
   const [activeUser, setUsername] = useState("");
 
+  //const imageToBase64 = require("image-to-base64");
+
+  // POBIERANIE ZDJEC NA SERWER
+  /*imageToBase64("img/a.png")
+    .then((response) => {
+      const filePath = path.join('./uploads', fileName);
+
+      const buffer = Buffer.from(base64Data, 'base64');
+  
+      fs.writeFileSync(filePath, buffer);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+*/
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const username = queryParams.get("username");
@@ -73,6 +88,7 @@ function App() {
       <MessageHandler
         data={data}
         activeChannel={activeChannel}
+        activeUser={activeUser}
       ></MessageHandler>
 
       <NewMessage
