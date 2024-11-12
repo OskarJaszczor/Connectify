@@ -6,24 +6,26 @@ import MessageHandler from "./components/MessageHanlder";
 import NewMessage from "./components/NewMessage";
 import AddServerInvisible from "./components/AddServerInvisible";
 
-
 function App() {
   const [activeServer, SetActiveServer] = useState(0);
   const [activeChannel, SetActiveChannel] = useState(0);
   const [data, setData] = useState(null);
+  const [activeUser, setUsername] = useState("");
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const username = queryParams.get("username");
+    setUsername(username);
+  }, []);
   useEffect(() => {
     const delay = data == null ? 0 : 250;
 
     setTimeout(() => {
       const fetchData = async () => {
         try {
-          console.log("tutaj2");
           const response = await fetch("http://localhost:3000/x");
-          console.log("tutaj1");
           const json = await response.json();
           setData(json);
-          console.log(json);
         } catch (error) {
           console.error("Error fetching data:", error);
         }
@@ -73,7 +75,10 @@ function App() {
         activeChannel={activeChannel}
       ></MessageHandler>
 
-      <NewMessage activeChannel={activeChannel}></NewMessage>
+      <NewMessage
+        activeChannel={activeChannel}
+        activeUser={activeUser}
+      ></NewMessage>
     </div>
   );
 }
