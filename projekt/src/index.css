@@ -125,11 +125,18 @@ body {
   margin-right: 1vw;
 }
 
+.rt {
+  position: absolute;
+  top: 0.5vh;
+  right: 1vh;
+}
+
 .channelName {
   line-height: 5vh;
   margin-left: 1vw;
   font-family: "Audiowide", sans-serif;
   font-weight: 300;
+  font-size: 2vh;
 }
 
 /* CHAT */

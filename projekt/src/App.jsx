@@ -1,3 +1,16 @@
+/* TODO
+
+ - awatar przy tworzeniu serwerow
+ - awatar przy tworzeniu uzytkownika
+ - username nie w pasku
+ - log out button
+ - kolorki przy tworzeniu uzytkownika
+ - register (caly)
+ - zmiana logowania na react
+ - themes ( chociaz 3 ) - sass 
+
+*/
+
 import { useState, useEffect } from "react";
 import "./App.css";
 import ServerHandler from "./components/ServerHandler";
@@ -70,6 +83,14 @@ function App() {
     <div className="mainContainer">
       <div className="topBar">
         <span>CONNECTIFY</span>
+        <button
+          className="rt"
+          onClick={(e) => {
+            window.location.href = "../../logowanie/index.html";
+          }}
+        >
+          Log out
+        </button>
       </div>
       <AddServerInvisible data={data}></AddServerInvisible>
       <ServerHandler
