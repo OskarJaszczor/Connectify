@@ -7,6 +7,7 @@ export default function ChannelHandler({
   activeServer,
   setActiveChannel,
   activeChannel,
+  theme
 }) {
 
   const [a, setA] = useState("")
@@ -24,7 +25,7 @@ export default function ChannelHandler({
           .filter((channel) => channel.serverId === activeServer)
           .map((channel) => (
             <div
-              className="channelHandler"
+              className="channelHandler "
               key={channel.channelId}
               onClick={() => {
                 setActiveChannel(channel.channelId);
@@ -32,8 +33,7 @@ export default function ChannelHandler({
               }}
               style={{
                 background:  
-                  channel.channelId === activeChannel ? "linear-gradient(146deg, rgba(4,7,152,1) 5%, rgba(185,104,219,1) 93%)" : "",
-                
+                  channel.channelId === activeChannel ? (theme == "light-theme" ? "linear-gradient(146deg, rgba(7, 7, 8, 1) 2%, rgba(168, 98, 28, 1) 99%)" : "linear-gradient(146deg, rgba(255, 255, 255, 1) 2%, rgba(52, 152, 219, 1) 99%)") : "",
               }}
             >
               

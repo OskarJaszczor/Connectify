@@ -28,9 +28,9 @@ export default function MessageHandler({ data, activeChannel }) {
 									<div
 										className="messageAuthorAvatar"
 										style={{
-											backgroundImage: `url(./img/${
-												data.users.filter(users => users.username == messages.author)[0].avatar
-											})`,
+											//backgroundImage: `url(./img/${
+												//data.users.filter(users => users.username == messages.author)[0].avatar
+											//})`,
 										}}></div>
 									<div className="messageBox">
 										<span className="messageAuthor">{messages.author}</span>{' '}

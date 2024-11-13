@@ -27,6 +27,7 @@ export default function addServerInvisible({ data }) {
 					type="file"
 					id="file"
 					onInput={e => {
+						/*
 						setFile(e.target.value)
 						imageToBase64(`${file}`)
 							.then(response => {
@@ -39,7 +40,7 @@ export default function addServerInvisible({ data }) {
 							})
 							.catch(error => {
 								console.log(error)
-							})
+							})*/
 					}}></input>
 
 				<h3>Dodaj użytkowników:</h3>

@@ -1,0 +1,171 @@
+@import 'https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand:wght@300..700&display=swap';
+// Zmienne kolorów i gradientów
+$light-bg: #ffffff;
+$light-text: #333333;
+$light-primary: #3498db;
+$light-gradient: linear-gradient(146deg, rgba(255, 255, 255, 1) 2%, rgba(52, 152, 219, 1) 99%);
+$light-background-img: "/img/lightBackground.jpg";
+$dark-bg: #1e1e1e;
+$dark-text: #f1f1f1;
+$dark-primary: #e67e22;
+$dark-gradient: linear-gradient(146deg, rgba(0, 0, 0, 1) 2%, rgba(131, 67, 2, 1) 99%);
+$dark-background-img: "/img/darkBackground.jpg";
+$button-border-color: blue;
+$input-focus-border-color: lightblue;
+$font-family: 'Quicksand',
+sans-serif;
+$font-family-alt: 'Audiowide',
+sans-serif;
+// Mixin do zastosowania kolorów motywu
+@mixin apply-theme($bg, $text, $primary, $background-img, $gradient) {
+    background-color: $bg;
+    color: $text;
+    background-image: $gradient, url($background-img);
+    background-size: cover;
+    background-position: center;
+}
+
+// Styl przycisku
+@mixin button-style($bg-color, $text-color, $border-color) {
+    padding: 10px 20px;
+    border: 1px solid $border-color;
+    background-color: $bg-color;
+    color: $text-color;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+// Styl pola input
+@mixin input-style($border-color) {
+    width: 20vw;
+    background-color: white;
+    border: none;
+    border-bottom: 2px solid $border-color;
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid $input-focus-border-color;
+    }
+}
+
+// Styl scrollbar
+@mixin scrollbar-style {
+    &::-webkit-scrollbar {
+        width: 1vw;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(48, 21, 60);
+        border-radius: 15px;
+        &:hover {
+            background: rgb(80, 6, 172);
+        }
+    }
+}
+
+// Motyw jasny
+.light-theme {
+    @include apply-theme($light-bg, $light-text, $light-primary, $light-background-img, $light-gradient);
+}
+
+// Motyw ciemny
+.dark-theme {
+    @include apply-theme($dark-bg, $dark-text, $dark-primary, $dark-background-img, $dark-gradient);
+}
+
+// Styl podstawowy
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+}
+
+// Styl ciała strony
+body {
+    background-image: url("/img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// Kontenery logowania i rejestracji
+.loginContainer,
+.registerContainer {
+    width: 20vw;
+    margin-left: 5vw;
+    margin-top: 2vh;
+}
+
+// Przyciski logowania i rejestracji
+.logInButton {
+    @include button-style(white,
+    $button-border-color,
+    $button-border-color);
+}
+
+.signUpButton {
+    @include button-style($dark-bg,
+    white,
+    transparent);
+    background: linear-gradient(122deg, rgba(9, 9, 121, 1) 2%, rgba(142, 92, 244, 1) 48%, rgba(0, 212, 255, 1) 100%);
+}
+
+// Przyciski wysyłania
+.sendButton,
+.sendButton1 {
+    @include button-style(white,
+    $button-border-color,
+    $button-border-color);
+}
+
+// Styl animacji
+@keyframes changeBck {
+    33% {
+        background: linear-gradient(122deg, rgba(9, 9, 121, 1) 2%, rgba(142, 92, 244, 1) 48%, rgba(0, 212, 255, 1) 100%);
+    }
+    66% {
+        background: linear-gradient(122deg, rgba(9, 9, 121, 1) 36%, rgba(142, 92, 244, 1) 70%, rgba(0, 212, 255, 1) 100%);
+    }
+    100% {
+        background: linear-gradient(122deg, rgba(9, 9, 121, 1) 60%, rgba(142, 92, 244, 1) 86%);
+    }
+}
+
+// Pola input
+.inpLogin,
+.inpPassword {
+    @include input-style($button-border-color);
+}
+
+// Chat
+.chat {
+    width: 70vw;
+    height: 88vh;
+    overflow-y: scroll;
+    @include scrollbar-style;
+}
+
+// Kontener wiadomości
+.messageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+}
+
+.messageBox {
+    margin-left: 5vw;
+    border-radius: 1vh;
+}
+
+// Autor wiadomości
+.messageAuthor {
+    color: rgb(56, 169, 255);
+}
+
+.messageDate {
+    color: rgb(10, 73, 140);
+}
+
+.messageContent {
+    color: white;
+}

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react'
 import ServerHandler from './ServerHandler'
 import ChannelHandler from './ChannelHandler'
@@ -5,6 +7,7 @@ import MessageHandler from './MessageHanlder'
 import NewMessage from './NewMessage'
 import AddServerInvisible from './AddServerInvisible'
 import { useNavigate } from 'react-router-dom'
+import ThemeToggle from './ThemeToggle';
 
 export default function MainApp({ username, setIsAuthenticated }) {
 	const navigate = useNavigate()
@@ -12,6 +15,9 @@ export default function MainApp({ username, setIsAuthenticated }) {
 	const [activeChannel, SetActiveChannel] = useState(0)
 	const [data, setData] = useState(null)
 	const [activeUser, setUsername] = useState(localStorage.getItem('username') || '')
+	const [theme, setTheme] = useState('light');
+
+
 	// console.log('u' + ' ' + activeUser)
 	//const imageToBase64 = require("image-to-base64");
 	// useEffect(() => {
@@ -36,6 +42,19 @@ export default function MainApp({ username, setIsAuthenticated }) {
         console.log(error);
       });
   */
+
+	  const toggleTheme = () => {
+		const newTheme = theme === 'light' ? 'dark' : 'light';
+		setTheme(newTheme);
+		
+		document.documentElement.className = newTheme === 'light' ? 'light-theme' : 'dark-theme';
+	  };
+	
+	  
+	  useEffect(() => {
+		document.documentElement.className = theme === 'light' ? 'light-theme' : 'dark-theme';
+	  }, [theme]);
+
 	useEffect(() => {
 		const delay = data == null ? 0 : 250
 
@@ -74,6 +93,9 @@ export default function MainApp({ username, setIsAuthenticated }) {
 		<div className="mainContainer">
 			<div className="topBar">
 				<span>CONNECTIFY</span>
+				
+      			<ThemeToggle onToggle={toggleTheme} theme={theme} />
+      			
 				<button
 					className="rt"
 					onClick={() => {
@@ -91,7 +113,8 @@ export default function MainApp({ username, setIsAuthenticated }) {
 				data={data}
 				activeServer={activeServer}
 				activeChannel={activeChannel}
-				setActiveChannel={SetActiveChannel}></ChannelHandler>
+				setActiveChannel={SetActiveChannel}
+				theme={theme}></ChannelHandler>
 
 			<MessageHandler data={data} activeChannel={activeChannel} activeUser={activeUser}></MessageHandler>
 
