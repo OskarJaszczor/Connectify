@@ -9,11 +9,10 @@ function App() {
 	const [username, setUsername] = useState(null)
 
 	useEffect(() => {
-		// Sprawdź, czy użytkownik jest zalogowany
 		const storedUsername = localStorage.getItem('username')
 		if (storedUsername) {
 			setUsername(storedUsername)
-			console.log('Stored username:', storedUsername) // Loguj bezpośrednio storedUsername
+			console.log('Stored username:', storedUsername)
 		}
 	}, [])
 
