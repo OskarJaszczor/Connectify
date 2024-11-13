@@ -9,29 +9,35 @@ function App() {
 	const [username, setUsername] = useState(null)
 
 	useEffect(() => {
-		// Sprawdź, czy użytkownik jest zalogowany, np. poprzez obecność username w localStorage
+		// Sprawdź, czy użytkownik jest zalogowany
 		const storedUsername = localStorage.getItem('username')
 		if (storedUsername) {
 			setUsername(storedUsername)
-			console.log(username)
-			setIsAuthenticated(true)
+			console.log('Stored username:', storedUsername) // Loguj bezpośrednio storedUsername
 		}
 	}, [])
+
+	useEffect(() => {
+		console.log('Updated username:', username)
+	}, [username])
 
 	return (
 		<Router>
 			<Routes>
 				<Route
 					path="/"
+					element={isAuthenticated ? <Navigate to="/app" /> : <LoginPage setIsAuthenticated={setIsAuthenticated} />}
+				/>
+				<Route
+					path="/app"
 					element={
 						isAuthenticated ? (
-							<Navigate to="/app" />
+							<MainApp username={username} setIsAuthenticated={setIsAuthenticated} />
 						) : (
-							<LoginPage setIsAuthenticated={setIsAuthenticated} setUsername={setUsername} />
+							<Navigate to="/" />
 						)
 					}
 				/>
-				<Route path="/app" element={isAuthenticated ? <MainApp username={username} /> : <Navigate to="/" />} />
 			</Routes>
 		</Router>
 	)

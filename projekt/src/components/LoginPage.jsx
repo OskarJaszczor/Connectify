@@ -10,13 +10,14 @@ export default function LoginPage({ setIsAuthenticated }) {
 	const handleLogin = async () => {
 		try {
 			//console.log(login, password)
-			const response = await fetch('http://localhost:3002/login', {
+			const response = await fetch('http://localhost:3000/login', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ login, password }),
 			})
 			if (response.ok) {
 				const data = await response.json()
+				console.log(data.username)
 				localStorage.setItem('username', data.username)
 				setIsAuthenticated(true)
 			} else {
@@ -35,7 +36,7 @@ export default function LoginPage({ setIsAuthenticated }) {
 			return
 		}
 		try {
-			const response = await fetch('http://localhost:3002/register', {
+			const response = await fetch('http://localhost:3000/register', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ login, password }),
