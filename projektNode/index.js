@@ -1,14 +1,21 @@
 const express = require('express')
+const path = require('path')
 const app = express()
 const port = 3000
 const cors = require('cors')
 const bodyparser = require('body-parser')
 const mysql = require('mysql')
+const fileupload = require("express-fileupload");
+const uuid = require("uuid")
+
 
 app.use(bodyparser.json())
 app.use(cors())
-app.use(bodyparser.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(fileupload({createParentPath:true}))
+app.use("/img", express.static('img'))
+
+
 
 const connection = mysql.createConnection({
 	host: 'localhost',
@@ -72,6 +79,8 @@ app.get('/', async (req, res) => {
 	const data = await getDatabase()
 	res.json(data)
 })
+
+
 
 app.post('/register', (req, res) => {
 	const { login, password } = req.body
@@ -143,19 +152,21 @@ app.post('/messages', async (req, res) => {
 })
 
 app.post('/addServer', async (req, res) => {
-	const { name, avatar, admin, users } = req.body
-	console.log(name)
-	console.log(avatar)
-	console.log(admin)
-	console.log(users)
+	const { name, admin, users } = req.body
+	const {avatar} = req.files
+
+	const filename = uuid.v4() +path.extname(avatar.name)
+
+	avatar.mv(path.join('img', filename))
+
 	const query = 'INSERT INTO servers (`serverId`, `serverName`, `serverImg`, `users`) VALUES (null,?,?,?)'
-	const values = [name, avatar, users]
+	const values = [name, filename, users]
 
 	connection.query(query, values, (error, results) => {
 		if (error) {
 			console.error('Błąd przy dodawaniu do bazy:', error)
 		}
-		console.log('Server dodany:', { name, avatar, users })
+		console.log('Server dodany:', { name, filename, users })
 	})
 
 	res.sendStatus(200)

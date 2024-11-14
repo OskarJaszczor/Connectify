@@ -107,7 +107,7 @@ export default function MainApp({ username, setIsAuthenticated }) {
 				</button>
 			</div>
 			<AddServerInvisible data={data}></AddServerInvisible>
-			<ServerHandler data={data} SetActiveServer={SetActiveServer} activeServer={activeServer}></ServerHandler>
+			<ServerHandler theme={theme} data={data} SetActiveServer={SetActiveServer} activeServer={activeServer}></ServerHandler>
 
 			<ChannelHandler
 				data={data}

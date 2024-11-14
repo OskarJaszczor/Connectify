@@ -12,7 +12,6 @@ export default function ChannelHandler({
 
   const [a, setA] = useState("")
   const [b, setB] = useState("")
-
   return (
     <div className="channelsContainer">
       {data && data.servers ? (data.servers.filter((server) => server.serverId === activeServer).map((server) => (<h2 key={server.serverId} className="serverNameOnChannels">{server.serverName}</h2>))): (
@@ -33,9 +32,15 @@ export default function ChannelHandler({
               }}
               style={{
                 background:  
-                  channel.channelId === activeChannel ? (theme == "light-theme" ? "linear-gradient(146deg, rgba(7, 7, 8, 1) 2%, rgba(168, 98, 28, 1) 99%)" : "linear-gradient(146deg, rgba(255, 255, 255, 1) 2%, rgba(52, 152, 219, 1) 99%)") : "",
+                  channel.channelId === activeChannel ? 
+                  (theme == "dark" ? 
+                  "linear-gradient(146deg, rgba(7, 7, 8, 1) 2%, rgba(168, 98, 28, 1) 99%)" 
+                  : 
+                  "linear-gradient(146deg, rgba(255, 255, 255, 1) 2%, rgba(52, 152, 219, 1) 99%)") 
+                  : "",
               }}
             >
+              
               
               <h2 className="channelName"><span className="channelChar">{channel.channelChar}</span>{channel.channelName}</h2>
               

@@ -27,20 +27,8 @@ export default function addServerInvisible({ data }) {
 					type="file"
 					id="file"
 					onInput={e => {
-						/*
-						setFile(e.target.value)
-						imageToBase64(`${file}`)
-							.then(response => {
-								// dorobic nazwe pliku
-								const filePath = path.join('/img', fileName)
+						setFile(e.target.files[0])
 
-								const buffer = Buffer.from(base64Data, 'base64')
-
-								fs.writeFileSync(filePath, buffer)
-							})
-							.catch(error => {
-								console.log(error)
-							})*/
 					}}></input>
 
 				<h3>Dodaj użytkowników:</h3>
@@ -64,18 +52,16 @@ export default function addServerInvisible({ data }) {
 				<button
 					className="makeServer"
 					onClick={async () => {
+						const form = new FormData();
+						form.append('name', a)
+						form.append('admin', 'admin')
+						form.append('avatar', file)
+						form.append('users', '1')
+
 						document.querySelector('.a').style.setProperty('display', 'none')
 						const response = await fetch('http://localhost:3000/addServer', {
 							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify({
-								name: a,
-								admin: '1',
-								avatar: b,
-								users: '1',
-							}),
+							body: form
 						})
 					}}>
 					Stwórz!

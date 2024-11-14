@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import AddServer from "./AddServer";
 
-export default function ServerHandler({ data, SetActiveServer, activeServer }) {
+export default function ServerHandler({ data, SetActiveServer, activeServer, theme }) {
   return (
     <div className="serversContainer">
       {data && data.servers ? (
@@ -13,8 +13,8 @@ export default function ServerHandler({ data, SetActiveServer, activeServer }) {
             }}
             style={{
               border:
-              server.serverId === activeServer ? "purple 3px solid" : "black 1px solid",
-              backgroundImage: `url(${server.serverImg})`,
+              server.serverId === activeServer ? (theme == 'dark' ? "white 3px solid" : "black 3px solid") : "black 1px solid",
+              backgroundImage: `url(http://localhost:3000/img/${server.serverImg})`,
               
             }}
           >
