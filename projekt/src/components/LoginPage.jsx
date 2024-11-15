@@ -91,12 +91,14 @@ export default function LoginPage({ setIsAuthenticated }) {
 
 				{isRegisterVisible && (
 					<div className="registerContainer">
+						Nick:
 						<label>
-							Nick:
+							
 						<input type="text" value={nick} onChange={e => setNick(e.target.value)} />
 						</label>
+						Login:
 						<label>
-							Login:
+							
 							<input type="text" value={login} onChange={e => setLogin(e.target.value)} />
 						</label>
 						<label>
@@ -106,6 +108,20 @@ export default function LoginPage({ setIsAuthenticated }) {
 						<label>
 							Potwierdź hasło:
 							<input type="password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} />
+						</label>
+						<label>
+							Avatar 
+							
+							
+							
+							{/* Zrobic zeby dzialal avatar tak jak na serverach */}
+
+
+
+
+
+
+							<input type="file" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} />
 						</label>
 						<button onClick={handleRegister}>Zarejestruj się</button>
 					</div>
