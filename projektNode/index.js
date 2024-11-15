@@ -83,15 +83,15 @@ app.get('/', async (req, res) => {
 
 
 app.post('/register', (req, res) => {
-	const { login, password } = req.body
+	const { nick, login, password } = req.body
 
-	connection.query('SELECT * FROM users WHERE login = ?', [login], (err, results) => {
+	connection.query('SELECT * FROM users WHERE username = ?', [nick], (err, results) => {
 		if (err) return res.status(500).json({ error: err })
 		if (results.length > 0) {
 			return res.status(400).json({ message: 'Użytkownik już istnieje' })
 		}
 
-		db.query('INSERT INTO users (login, password) VALUES (?, ?)', [login, password], err => {
+		connection.query('INSERT INTO users (username, login, password) VALUES (?, ?, ?)', [nick, login, password], err => {
 			if (err) return res.status(500).json({ error: err })
 			res.status(201).json({ message: 'Użytkownik zarejestrowany' })
 		})

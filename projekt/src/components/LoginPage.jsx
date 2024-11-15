@@ -5,6 +5,7 @@ export default function LoginPage({ setIsAuthenticated }) {
 	const [isLoginVisible, setIsLoginVisible] = useState(false)
 	const [isRegisterVisible, setIsRegisterVisible] = useState(false)
 	const [login, setLogin] = useState('')
+	const [nick, setNick] = useState('')
 	const [password, setPassword] = useState('')
 	const [passwordConfirm, setPasswordConfirm] = useState('')
 
@@ -40,15 +41,20 @@ export default function LoginPage({ setIsAuthenticated }) {
 			const response = await fetch('http://localhost:3000/register', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ login, password }),
+				body: JSON.stringify({ nick, login, password }),
 			})
 
 			if (response.ok) {
 				alert('Zarejestrowano pomyślnie!')
+				const data = await response.json()
+				console.log(data.username)
+				localStorage.setItem('username', data.username)
+				setIsAuthenticated(true)
 				setIsLoginVisible(true)
 				setIsRegisterVisible(false)
 				setLogin('')
 				setPassword('')
+				setNick('')
 			} else {
 				const data = await response.json()
 				alert(data.message || 'Wystąpił błąd podczas rejestracji')
@@ -85,6 +91,10 @@ export default function LoginPage({ setIsAuthenticated }) {
 
 				{isRegisterVisible && (
 					<div className="registerContainer">
+						<label>
+							Nick:
+						<input type="text" value={nick} onChange={e => setNick(e.target.value)} />
+						</label>
 						<label>
 							Login:
 							<input type="text" value={login} onChange={e => setLogin(e.target.value)} />
